@@ -4,11 +4,22 @@ using UnityEngine;
 
 public class Turret : MonoBehaviour
 {
+    [Header("Unity Setup Field")]
 
     private Transform target;
-    public float range = 15f;
-
+    public Transform partToRotate;
     public string enemyTag = "Enemy";
+    public GameObject bulletPrefab;
+    public Transform firePoint;
+
+    [Header("Attributes")]
+
+    public float turretSpeed = 10f;
+    public float range = 15f;
+    public float fireRate = 1f;
+    private float fireCountdown = 0f;
+
+    
 
     // Start is called before the first frame update
     void Start()
@@ -48,7 +59,24 @@ public class Turret : MonoBehaviour
     {
         if( target == null)
         { return; }
-       
+
+        Vector3 dir = target.position - transform.position;
+        Quaternion lookRotation = Quaternion.LookRotation(dir);
+        Vector3 rotation = Quaternion.Lerp(partToRotate.rotation, lookRotation, Time.deltaTime * turretSpeed).eulerAngles;
+        partToRotate.rotation = Quaternion.Euler(0f, rotation.y, 0f);
+
+        if(fireCountdown <= 0)
+        {
+            Shoot();
+            fireCountdown = 1f / fireRate;
+        }
+
+        fireCountdown -= Time.deltaTime;
+    }
+
+    void Shoot()
+    {
+
     }
 
     void OnDrawGizmos()
