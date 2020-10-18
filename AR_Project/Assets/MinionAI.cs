@@ -40,5 +40,18 @@ public class MinionAI : MonoBehaviour
     {
         PlayerStats.Lives--;
         Destroy(gameObject);
+
+        if(PlayerStats.Lives <= 0)
+        {
+            EndGame();
+        }
     }
+
+    void EndGame()
+    {
+        Time.timeScale = 0;
+        Debug.Log("GAMEOVER NERD");
+    
+    }
+
 }
