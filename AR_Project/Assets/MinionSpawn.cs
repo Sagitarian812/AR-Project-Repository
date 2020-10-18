@@ -43,6 +43,7 @@ public class MinionSpawn : MonoBehaviour
     void SpawnEnemy()
     {
         Instantiate(enemyPrefab, spawnPoint.position, spawnPoint.rotation);
+       // enemyPrefab.transform.parent = spawnPoint.transform;
     }
 
 }

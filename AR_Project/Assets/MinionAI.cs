@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MinionAI : MonoBehaviour
 {
-    public float speed = 10f;
+    public float speed;
 
     private Transform target;
     private int wavepointIndex = 0;
