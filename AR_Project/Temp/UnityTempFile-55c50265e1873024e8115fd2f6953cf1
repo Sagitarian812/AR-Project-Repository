@@ -308,5 +308,6 @@
 Assets\Bullet.cs
 Assets\MinionAI.cs
 Assets\MinionSpawn.cs
+Assets\PlayerStats.cs
 Assets\Turret.cs
 Assets\Waypoints.cs
