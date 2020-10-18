@@ -10,7 +10,7 @@ public class MinionSpawn : MonoBehaviour
 
     public TextMeshProUGUI timer;
 
-    public float timeBetweenWaves = 5f;
+    public float timeBetweenWaves = 10f;
     private float countdown = 2f;
     private int waveNumber = 0;
 
